@@ -1,0 +1,133 @@
+body {
+  background: rgb(255,255,255);
+    margin: 0px;
+}
+page {
+  position: relative;
+  background: white;
+  display: block;
+  margin: 0 auto;
+  page-break-after: always;
+}
+page:not([type="anexo"]){
+  counter-increment: page;
+}
+page[size="A4"] {
+  width: 1240px;
+  height: 1734px;
+  padding: 0cm;
+}
+page[size="A4"][layout="landscape"] {
+  width: 29.7cm;
+  height: 21cm;
+}
+page[size="A3"] {
+  width: 29.7cm;
+  height: 42cm;
+}
+page[size="A3"][layout="landscape"] {
+  width: 42cm;
+  height: 29.7cm;
+}
+page[size="A5"] {
+  width: 14.8cm;
+  height: 21cm;
+}
+page[size="A5"][layout="landscape"] {
+  width: 21cm;
+  height: 14.8cm;
+}
+p {
+  font-size: 30px;
+}
+h4 {
+  margin: 10px
+}
+.container {
+  margin-left: 0px;
+}
+.header {
+  margin: -10px;
+  border-style: solid;
+  border-width: 1px;
+}
+.header h4 {
+  width: 1000px;
+  margin: 1px;
+}
+.header .logo {
+  width: 120px;
+  padding-top: 4px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px 0px;
+}
+.three_columns {
+  width: 30%;
+}
+.pie_pagina {
+  margin: 0px;
+  font-style: italic;
+  text-align: center;
+}
+.clima_year {
+  width: 360px;
+}
+.center {
+  text-align: center;
+}
+.media_img {
+  width: 700px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.text-xl {
+  font-size: 40px;
+}
+.text-small {
+  font-size: 26px;
+}
+.text-med {
+  font-size: 38px;
+}
+.text-right {
+  text-align: right;
+}
+page:not([type="anexo"]):after {
+  content: 'Página ' counter(page);
+  position: absolute;
+  top: 1900px;
+  right: 600px;
+  z-index: 999;
+}
+page .page-break {
+  page-break-after: always;
+}
+@media print {
+  body, page {
+    margin-top: 30px;
+    box-shadow: 0;
+  }
+  page .page-break {
+    page-break-after: always;
+  }
+  page:after {
+  content: 'Página ' counter(page);
+  position: absolute;
+  top: 1900px;
+  right: 600px;
+  z-index: 999;
+  }
+  p {
+   orphans: 2; 
+  }
+  @page {
+    size: A4;
+    margin: 10% 10% 4% 10%; 
+  }
+}
+

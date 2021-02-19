@@ -1,0 +1,14 @@
+<page size="A4">
+  <div class="container breakable">
+    {% include 'header.html' %}
+      <div class="row">
+        <div class="content">
+          {% for capitulo in capitulos %}
+          {% include capitulo + '.html' %}
+          {% endfor %}
+       </div>
+      </div>
+  </div>
+</page>
+<script src="../js/texto.js"></script>
+<script src="../js/indice.js"></script>

@@ -1,0 +1,61 @@
+  {% for zona in severidad -%}
+
+  <page size="A4">
+    <div class="container">
+        <div class="row">
+          <div class="content header">
+            <h4>REE - DISEÑO DE ACCIONES PREVENTIVAS CON EL OBJETIVO DE MINIMIZAR LA PROPAGACIÓN DE INCENDIOS FORESTALES EN ZONAS CRÍTICAS. EXTREMADURA 2020</h4>
+          </div>
+          <div class="content header">
+            <img class="logo" src="../../../IMAGENES/logo_forex.png" />
+          </div>
+        </div>
+        <div class="row">
+            <div class="content">
+              <h1 style="text-align: center;">Zonas afectadas por incendios forestales dentro de la zona de estudio {{ zona.zona }} durante el periodo 2013-2019 y estudio de severidad.</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="content">
+              <img class="severidad_imagen_ppal" src="../../../IMAGENES/Perimetros_{{ zona.zona | replace('-', '_') }}.png" />
+              <div class='pie_pagina'>Localización de los incendios respecto a la zona de estudio y leyenda por colores de los años en los que se produjo. Fuente IGN</div>
+            </div>
+        </div>
+    </div>
+  </page>
+  {% for incendio in zona.incendios %}
+  <page size="A4">
+    <div class="container">
+        <div class="row">
+          <div class="content header">
+            <h4>REE - DISEÑO DE ACCIONES PREVENTIVAS CON EL OBJETIVO DE MINIMIZAR LA PROPAGACIÓN DE INCENDIOS FORESTALES EN ZONAS CRÍTICAS. EXTREMADURA 2020</h4>
+          </div>
+          <div class="content header">
+            <img class="logo" src="../../../IMAGENES/logo_forex.png" />
+          </div>
+        </div>
+        <div class="row">
+            <div class="content">
+              <h1 style="text-align: center;">{{ incendio.fecha }}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="content">
+              <img class="perimetro" src="../images/perimetro_{{ incendio.idpif }}.png" />
+              <div class='pie_pagina'>Localización del incendio respecto a la zona de estudio. Fuente IGN</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="content two_columns">
+              <img class="dNBR" src="../images/dNBR_{{ incendio.idpif }}.png" />
+              <div class='pie_pagina'>Severidad del incendio mediante cálculo del dNBR sobre fondo cartográfico. Fuente IGN y elaboración propia a partir de imágenes del satélite Landsat8.</div>
+            </div>
+            <div class="content two_columns">
+              <img class="PNOA" src="../images/perimetro_PNOA_{{ incendio.idpif }}.png" />
+              <div class='pie_pagina'>Imagen satélite actual de la zona afectada. Fuente IGN</div>
+            </div>
+        </div>
+    </div>
+  </page>
+  {% endfor %}
+  {% endfor %}

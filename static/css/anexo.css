@@ -1,0 +1,24 @@
+.anexo_title{
+  position: absolute;
+  top: 500px;
+  left: 200px;
+  width: 840px;
+  text-align: center;
+}
+.anexo_title h1 {
+  font-size: 80px;
+}
+.anexo_title h2 {
+  font-size: 60px;
+}
+
+page[type="anexo"] {
+  counter-increment: anexo;
+}
+page[type="anexo"]:after {
+  content: 'Página ' counter(anexo, upper-roman);
+  position: absolute;
+  top: 1900px;
+  right: 600px;
+  z-index: 999;
+}

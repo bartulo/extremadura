@@ -1,0 +1,67 @@
+  <page size="A4">
+    <div class="container">
+        <div class="row">
+          <div class="content header">
+            <h4>REE - DISEÑO DE ACCIONES PREVENTIVAS CON EL OBJETIVO DE MINIMIZAR LA PROPAGACIÓN DE INCENDIOS FORESTALES EN ZONAS CRÍTICAS. EXTREMADURA 2020</h4>
+          </div>
+          <div class="content header">
+            <img class="logo" src="../../../IMAGENES/logo_forex.png" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="content">
+            <h1>Meteorología</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="content">
+            <img class="media_img" src="../../../IMAGENES/estaciones_aemet.png" />
+            <div class="pie_pagina">Localización respecto a la zona de estudio de las estaciones de la AEMET usados para recopilar los datos.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </page>
+
+{% for estacion in ['tornavacas', 'piornal'] %}
+  <page size="A4">
+    <div class="container">
+        <div class="row">
+          <div class="content header">
+            <h4>REE - DISEÑO DE ACCIONES PREVENTIVAS CON EL OBJETIVO DE MINIMIZAR LA PROPAGACIÓN DE INCENDIOS FORESTALES EN ZONAS CRÍTICAS. EXTREMADURA 2020</h4>
+          </div>
+          <div class="content header">
+            <img class="logo" src="../../../IMAGENES/logo_forex.png" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="media">
+            <h4 class="center text-med">Climodiagrama periodo 2014 - 2020. Estación {{ estacion | capitalize }}</h4>
+            <img class="media_img" src="../images/climodiagrama_{{ estacion }}_media.png" />
+          </div>
+        </div>
+
+        <div class="row">
+          {% if estacion == 'tornavacas' %}
+            {% set inicio = 2014 %}
+          {% else %}
+            {% set inicio = 2016 %}
+          {% endif %}
+            
+          {% for year in range(inicio, 2021) %}
+            <div class="content three_columns">
+              <div>
+                <h4 class="center">{{ year }}</h4>
+              </div>
+              <img class="clima_year" src="../images/climodiagrama_{{ estacion  }}_{{ year }}.png" />
+            </div>
+          {% endfor %}
+        </div>
+        <div class="row">
+            <div class="content">
+              <div class="pie_pagina">Elaboración propia a partir de datos de la AEMET</div>
+            </div>
+        </div>
+    </div>
+  </page>
+  {% endfor %}

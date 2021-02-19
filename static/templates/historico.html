@@ -1,0 +1,26 @@
+        <p>Los datos para la elaboración del estudio del histórico de incendios han sido proporcionados por el EGIF (Estadística General de Incendios Forestales) y el periodo de estudio es el comprendido entre 2001 y 2019 pues consideramos que un periodo de 20 años es el adecuado para observar la recurrencia de incendios. Por desgracia en la fecha en la que se realizó el estudio todavía no estaban disponibles los datos del año 2020 y, por ejemplo, el GIF ocurrido en el municipio de Villanueva de la Vera no está reflejado. Por otra parte los incendios ocurridos en las provincias limítrofes de Ávila y Salamanca sólo están reflejados hasta el año 2015 pues la EGIF sólo tenía datos hasta esa fecha.</p>
+        <p>Como se ve en la imagen 2, nuestra zona de estudio tiene una incidencia de incendios forestales notable y se puede observar una estacionalidad también variable con incendios superiores a 100 ha no sólo en verano, como sería de esperar, sino también en invierno y primavera.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="content">
+        <img class="incendio" src="../../../IMAGENES/incendios_cartografia.png" />
+        <div class="pie_pagina">Mapa de los incendios ocurridos en las proximidades de la zona de estudio durante el periodo 2001-2019. El tamaño del círculo es proporcional a la superficie quemada y los colores indican el mes del año en el que ocurrió el incendio. Fuente EGIF.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="content">
+        <p>Para realizar un estudio más detallado de las condiciones sinópticas que hacen que en esta zona un incendio se convierta en un incendio de 100 has o más, se ha decidido seleccionar los 20 incendios más grandes que ocurrieron a menos de 8 km de nuestra zona de estudio y analizar sus condiciones meteorológicas recurriendo a los mapas de 500 y 850 hpas que proporciona la página web wetterzentrale. También se han analizado los datos horarios de temperatura, humedad relativa, viento y dirección del viento que proporciona la estación meteorológica de REDAREX (Red de Aesoramiento al Regante de Extremadura). Los datos de este estudio se encuentran en el anexo 3 y en ellos se puede observar una clara recurrencia de condiciones de vientos de norte y este en los días en los que se produjo un incendio de 100 has o más.</p>
+        <p>En la Tabla 1 se muestran los datos más significativos de dichos incendios. </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="content style-table">
+        {{ tabla.to_html(border=0, index=False) }}
+        <div class="pie_pagina">Tabla que muestra los 20 incendios más grandes ocurridos a menos de 8 km de la zona de estudio durante el periodo 2001-2019.</div>
+      </div>
+    </div> 
+    <div class="row">
+      <div class="content">
+        <p>Valiéndonos de las nuevas tecnologías nos ha resultado interesante hacer un estudio más detallado de los incendios que afectaron directamente a nuestra zona de estudio e intentar sacar el perimetro de los mismos. Para ello se ha recurrido a los imágenes multiespectrales de los satélites Landsat 8 y Sentinel 2 que proporciona la Comisión Europea y la Agencia Espacial Europea a través del programa Copernicus. El satélite Landsat 8 fue lanzado al espacio en 2013 y tiene una resolución para las bandas de nuestro interés de 30 metros por pixel y el Sentinel 2 fue lanzado en 2017 y tiene una resolución de 10 metros por pixel. Es por ello que sólo podemos obtener los perímetros desde el 2013 hasta la fecha y que sólo se vean reflejados los incendios de más de 5 has, pues incendios más pequeños son difíciles de localizar con esas resoluciones.</p>
+        <p>El índice utilizado para identificar áreas quemadas ha sido el NBR (Normalized Burn Ratio) y se ha hecho un análisis de la severidad de cada incendio con el dNBR que se obtiene de restar los NBR de una imagen poterior al incendio a una imagen anterior al incendios. Los perímetros y la severidad obtenidos se pueden observar en el Anexo 3.</p>

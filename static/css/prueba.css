@@ -1,0 +1,72 @@
+body {
+  background: rgb(255,255,255);
+    margin: 0px;
+}
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+}
+page[size="A4"] {
+  width: 1240px;
+  height: 1734px;
+  padding: 0cm;
+}
+page[size="A4"][layout="landscape"] {
+  width: 29.7cm;
+  height: 21cm;
+}
+page[size="A3"] {
+  width: 29.7cm;
+  height: 42cm;
+}
+page[size="A3"][layout="landscape"] {
+  width: 42cm;
+  height: 29.7cm;
+}
+page[size="A5"] {
+  width: 14.8cm;
+  height: 21cm;
+}
+page[size="A5"][layout="landscape"] {
+  width: 21cm;
+  height: 14.8cm;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0px;
+}
+.incendio {
+  width:780px;
+}
+.wetter {
+  width: 560px;
+}
+.graph {
+  width: 500px;
+}
+.row-table {
+  display: flex;
+  justify-content: space-between;
+  border-style: solid;
+}
+.table {
+  width: 400px;
+  margin-top:0px;
+  border-style: solid;
+}
+.content {
+  padding: 10px;
+}
+@media print {
+  body, page {
+    margin: 0;
+    box-shadow: 0;
+  }
+  page .page-break {
+    page-break-after: always;
+  }
+}
+
