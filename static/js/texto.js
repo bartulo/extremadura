@@ -4,6 +4,117 @@ var isBreakable = function(elem, limit) {
   }
 }
 
+var breakElem = function(elem) {
+  for (i=0; i < elem.length; i++) {
+    if (isBreakable(elem[i], 1850)) {
+      if (elem[i].querySelectorAll('img').length) {
+        breakImage(elem[i], i); // IMAGEN
+      } else if (elem[i].querySelectorAll('.style-table').length) {
+        breakTable(elem[i], i); // TEXTO
+      } else {
+        breakText(elem[i], i); // TEXTO
+      }
+      break;
+    }
+  }
+}
+
+var breakImage = function(elem, rowIndex) {
+  // TODO Escribir una función que reduzca la imagen si está cerca del borde de la página.
+  var origPage = elem.parentNode.parentNode;
+  var header = origPage.getElementsByClassName('row')[0]  
+
+  var newPage = origPage.cloneNode();
+  var newContainer = document.createElement('div');
+  newContainer.classList.add('container');
+  newContainer.appendChild(header.cloneNode(true));
+
+  var rowsBreakables = document.getElementsByClassName('breakable')[0].children;
+  var l = rowsBreakables.length;
+  for(var i=rowIndex; i < l; i++) {
+    newContainer.appendChild(rowsBreakables[rowIndex])
+  }
+
+  newPage.appendChild(newContainer)
+
+  origPage.after(newPage);
+
+  document.getElementsByClassName('breakable')[0].classList.remove('breakable');
+  newContainer.classList.add('breakable');
+
+  breakElem(newContainer.children);
+}
+
+var breakTable = function(elem, rowIndex) {
+  var contentBreakable = elem.querySelectorAll('tr');
+  var piePagina = elem.querySelector('.pie_pagina');
+  console.log(piePagina);
+
+  for (var i=0; i < contentBreakable.length; i++) {
+    if (contentBreakable[i].parentNode.tagName == 'THEAD') {
+      tableHeader = contentBreakable[i].parentNode
+    }
+    if (isBreakable(contentBreakable[i], 1850 - elem.offsetTop - 42)) {
+      var contentIndex = i;
+      break;
+    }
+  }
+
+  var newContent = document.createElement('div');
+  newContent.classList.add('content');
+  newContent.classList.add('style-table');
+
+  var newTable = document.createElement('table');
+  newTable.appendChild(tableHeader.cloneNode(true))
+
+  var newTableBody = document.createElement('tbody')
+
+  if (contentIndex) { // SI no pongo este if añade el header al tbody si el header coincide son el salto de página
+    for (var i=contentIndex; i < contentBreakable.length; i++) {
+      console.log(contentBreakable[contentIndex])
+      newTableBody.appendChild(contentBreakable[i]);
+    }
+  } else {
+    elem.innerHTML = '';
+  }
+
+  newTable.appendChild(newTableBody);
+  newContent.appendChild(newTable);
+  if (piePagina) {
+    newContent.appendChild(piePagina);
+  }
+
+  var origPage = elem.parentNode.parentNode;
+  var header = origPage.getElementsByClassName('row')[0]  
+
+  var newPage = origPage.cloneNode();
+  var newContainer = document.createElement('div');
+  newContainer.classList.add('container');
+  newContainer.appendChild(header.cloneNode(true));
+
+  var newRow = document.createElement('div');
+  newRow.classList.add('row');
+
+  newRow.appendChild(newContent);
+  newContainer.appendChild(newRow)
+
+  var rowsBreakables = document.getElementsByClassName('breakable')[0].children;
+  var l = rowsBreakables.length;
+  for(var i=rowIndex + 1; i < l; i++) {
+    newContainer.appendChild(rowsBreakables[rowIndex + 1])
+  }
+
+
+  newPage.appendChild(newContainer)
+
+  origPage.after(newPage);
+
+  document.getElementsByClassName('breakable')[0].classList.remove('breakable');
+  newContainer.classList.add('breakable');
+
+  breakElem(newContainer.children);
+}
+
 var breakText = function(elem, rowIndex) {
   var contentBreakable = elem.children;
 
@@ -19,13 +130,11 @@ var breakText = function(elem, rowIndex) {
   // LOCALIZAR EL PARRAFO DONDE SE PRODUCE EL CORTE DE PÁGINA
 
   for (var i=0; i < elemBreakable.length; i++) {
-    console.log(elemBreakable[i].offsetTop + elemBreakable[i].clientHeight);
     if (isBreakable(elemBreakable[i], 1850)) {
       var elemToBreak = elemBreakable[i];
       var elemIndex = i;
       break;
     } else if (i == elemBreakable.length - 1) {
-      console.log('Todo el parrafo por encima de la línea de corte');
     }
   }
 
@@ -105,19 +214,8 @@ var breakText = function(elem, rowIndex) {
   document.getElementsByClassName('breakable')[0].classList.remove('breakable');
   newContainer.classList.add('breakable');
 
-  for (i=0; i < newContainer.children.length; i++) {
-    console.log(newContainer.children[i].offsetTop + newContainer.children[i].clientHeight);
-    if (isBreakable(newContainer.children[i], 1850)) { 
-      breakText(newContainer.children[i], i);
-      break;
-    }
-  }
+  breakElem(newContainer.children);
 }
 
 var rowsBreakables = document.getElementsByClassName('breakable')[0].children;
-for (i=0; i < rowsBreakables.length; i++) {
-  if (isBreakable(rowsBreakables[i], 1850)) { 
-    breakText(rowsBreakables[i], i);
-    break;
-  }
-}
+breakElem(rowsBreakables);

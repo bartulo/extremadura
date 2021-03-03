@@ -1,0 +1,56 @@
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+    <img class="width_100" src="../images_quemas/parcelas_{{ zona }}.png" >
+    <div class="pie_pagina">Localización de las parcelas sobre mapa topográfico.</div>
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+    <h2>4.1.- Superficie</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="content style-table">
+    {{ sup.to_html(border=0, index=False) }}
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+    <h2>4.2.- Límites</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="content style-table">
+    {{ limites.to_html(border=0, index=False) }}
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+    <h2>4.3.- Orientación</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="content style-table">
+    {{ orientaciones.to_html(border=0, index=False) }}
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+    <h2>4.4.- Altitud media</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="content style-table">
+    {{ stats.to_html(border=0, index=False) }}
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+    <h2>4.5.- Suelo</h2>
+    <p>El suelo es silíceo, con pedregosidad baja-media y con abundancia de afloramientos rocosos repartidos
+homogéneamente por el conjunto del espacio.</p>
+    <h2>4.6.- Vegetación</h2>
+    <h2>4.7.- Nivel de dificultad o análisis de dificultad</h2>
+    <h2>4.8.- Observaciones</h2>

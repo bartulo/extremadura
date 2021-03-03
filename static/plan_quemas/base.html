@@ -10,7 +10,17 @@
 </head>
 
 <body>
-  {% include 'texto.html' %}
-  {% include 'anexo.html' %}
+<page size="A4">
+  <div class="container breakable">
+    {% include 'header.html' %}
+      <div class="row">
+        <div class="content">
+          {% include 'contenido.html' %}
+       </div>
+      </div>
+  </div>
+</page>
+<script src="../js/texto.js"></script>
+<script src="../js/indice.js"></script>
 </body>
 </html>

@@ -85,3 +85,15 @@
 .imagen_mdt {
   width: 300px;
 }
+.imagen_hidrografia_cuenca {
+  max-width: 900px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.imagen_hidrografia_detalle {
+  max-height: 480px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
