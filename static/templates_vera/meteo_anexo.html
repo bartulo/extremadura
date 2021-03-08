@@ -32,16 +32,4 @@
         </div>
     </div>
   </page>
-  {% if estacion == 'madrigal' %}
-  <page size="A4" type="anexo">
-    <div class="container">
-      {% include 'header.html' %}
-        <div class="row">
-          <div class="content style-table">
-            {{ meteo.to_html(border=0, index=false) }}
-          </div>
-        </div>
-    </div>
-  </page> 
-  {% endif %}
   {% endfor %}
