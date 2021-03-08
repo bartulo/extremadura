@@ -1,0 +1,44 @@
+  <page size="A4" type="anexo">
+    <div class="container">
+      {% include 'header.html' %}
+        <div class="row">
+            <div class="content">
+              <h4 class="center text-med">Zonas afectadas por incendios forestales dentro de la zona de estudio {{ severidad.zona }} durante el periodo 2013-2019 y estudio de severidad.</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="content">
+              <img class="severidad_imagen_ppal" src="../../../IMAGENES/Perimetros_{{ severidad.zona | replace('-', '_') }}.png" />
+              <div class='pie_pagina'>Localización de los incendios respecto a la zona de estudio y leyenda por colores de los años en los que se produjo. Fuente IGN</div>
+            </div>
+        </div>
+    </div>
+  </page>
+  {% for incendio in severidad.incendios %}
+  <page size="A4" type="anexo">
+    <div class="container">
+      {% include 'header.html' %}
+        <div class="row">
+            <div class="content">
+              <h4 class="center text-med">{{ incendio.fecha }}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="content">
+              <img class="perimetro" src="../images/perimetro_{{ incendio.idpif }}.png" />
+              <div class='pie_pagina'>Localización del incendio respecto a la zona de estudio. Fuente IGN</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="content two_columns">
+              <img class="dNBR" src="../images/dNBR_{{ incendio.idpif }}.png" />
+              <div class='pie_pagina'>Severidad del incendio mediante cálculo del dNBR sobre fondo cartográfico. Fuente IGN y elaboración propia a partir de imágenes del satélite Landsat8.</div>
+            </div>
+            <div class="content two_columns">
+              <img class="PNOA" src="../images/perimetro_PNOA_{{ incendio.idpif }}.png" />
+              <div class='pie_pagina'>Imagen satélite actual de la zona afectada. Fuente IGN</div>
+            </div>
+        </div>
+    </div>
+  </page>
+  {% endfor %}

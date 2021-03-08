@@ -1,0 +1,47 @@
+  {% for estacion in ['madrigal', 'piornal'] %}
+  <page size="A4" type="anexo">
+    <div class="container">
+      {% include 'header.html' %}
+        <div class="row">
+          <div class="media">
+            <h4 class="center text-med">Climodiagrama periodo 2014 - 2020. Estación {{ estacion | capitalize }}</h4>
+            <img class="media_img" src="../images/climodiagrama_{{ estacion }}_media.png" />
+          </div>
+        </div>
+
+        <div class="row">
+          {% if estacion == 'madrigal' %}
+            {% set inicio = 2014 %}
+          {% else %}
+            {% set inicio = 2016 %}
+          {% endif %}
+            
+          {% for year in range(inicio, 2021) %}
+            <div class="content three_columns">
+              <div>
+                <h4 class="center">{{ year }}</h4>
+              </div>
+              <img class="clima_year" src="../images/climodiagrama_{{ estacion  }}_{{ year }}.png" />
+            </div>
+          {% endfor %}
+        </div>
+        <div class="row">
+            <div class="content">
+              <div class="pie_pagina">Elaboración propia a partir de datos de la AEMET</div>
+            </div>
+        </div>
+    </div>
+  </page>
+  {% if estacion == 'madrigal' %}
+  <page size="A4" type="anexo">
+    <div class="container">
+      {% include 'header.html' %}
+        <div class="row">
+          <div class="content style-table">
+            {{ meteo.to_html(border=0, index=false) }}
+          </div>
+        </div>
+    </div>
+  </page> 
+  {% endif %}
+  {% endfor %}

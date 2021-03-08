@@ -1,0 +1,27 @@
+{% if zona == 'madrigal' or zona == 'losar' %}
+{% set afluente = 'Tiétar' %}
+{% elif zona == 'tornavacas' or zona == 'jerte' %}
+{% set afluente = 'Jerte' %}
+{% endif %}
+<p>La zona de estudio se encuentra situada en la cuenca del río Tajo, y en su superficie se produce el nacimiento de multiples arroyos de alta montaña que van a parar al río {{ afluente }} que es contribuyente del mencionado río Tajo.</p>
+<p>La localización e identificación de los arroyos es de gran importancia en el presente estudio puesto que no podremos proponer actuaciones a menos de 5 metros de sus márgenes ya que pertenecen a la confederación hidrográfica del Tajo.</p>
+<p>En las siguientes imágenes se muestra la localización de la zona de estudio respecto a la cuenca del Tajo y la ubicación y el recorrido de los arroyos que conforman la hidrografía del lugar hasta que dan a dar con el río {{ afluente }}</p>
+</div>
+</div>
+<div class="row">
+  <div class="content two_columns">
+    <img class="imagen_hidrografia_cuenca" src="../images/hidrografia_cuenca_{{ zona }}.png" >
+    <div class="pie_pagina">Localización de la zona de estudio respecto a la cuenca hidrográfica del Tajo a su paso por la provincia de Cáceres. Fuente: elaboración propia a partir de datos del SITEx (Sistema de Información Territorial de Extremadura).</div>
+  </div>
+  <div class="content two_columns">
+    <img class="imagen_hidrografia_detalle" src="../images/hidrografia_detalle_{{ zona }}.png" >
+    <div class="pie_pagina">Detalle de la hidrografía de la zona de estudio. Fuente: elaboración propia a partir de datos del SITEx.</div>
+  </div>
+</div>
+<div class="row">
+  <div class="content style-table">
+    {{ rios.to_html(border=0, index=false, columns=['id_mapa', 'tipo_curso', 'long_km', 'nombre']) }}
+  </div>
+</div>
+<div class="row">
+  <div class="content">

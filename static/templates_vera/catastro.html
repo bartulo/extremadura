@@ -1,0 +1,60 @@
+<page size="A4" type="anexo">
+    <div class="container">
+      {% include 'header.html' %}
+        <div class="row">
+            <div class="content">
+              <h4 class="center text-med">Parcelas catastrales</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="content">
+              <img class="parcela" src="../images/catastro_{{ zona }}.png" />
+            </div>
+        </div>
+        {% for parcela in catastro %}
+        <div class="row">
+          <div class="content">
+            <h4 class="center text-small">{{ parcela.refcat }}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="content style-table">
+            <table>
+              <tbody>
+                <tr>
+                  <td>Referencia catastral</td>
+                  <td class="text-right">{{ parcela.refcat }}</td>
+                </tr>
+                <tr>
+                  <td>Fecha de alta</td>
+                  <td class="text-right">{{ parcela.fecha }}</td>
+                </tr>
+                <tr>
+                  <td>Superficie</td>
+                  <td class="text-right">{{ parcela.sup }} has</td>
+                </tr>
+                <tr>
+                  <td>Persona de contacto</td>
+                  <td class="text-right">{{ parcela.propietario1 }}</td>
+                </tr>
+                <tr>
+                  <td>Contacto</td>
+                  <td class="text-right">{{ parcela.contacto1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="content">
+            <img class="subparcela" src="../images/subparcela_{{ parcela.refcat }}.png"/>
+          </div>
+      </div>
+      {% if parcela.key == 1 or parcela.key == 4 or parcela.key == 7 or parcela.key == 10 %}
+          </div>
+      </page>
+      <page size="A4" type="anexo">
+          <div class="container">
+      {% include 'header.html' %}
+      {% endif %}
+      {% endfor %}
+    </div>
+</page>

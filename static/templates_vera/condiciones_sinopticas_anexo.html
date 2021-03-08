@@ -1,0 +1,73 @@
+{% for inc in condiciones_sinopticas %}
+  <page size="A4" type="anexo">
+    <div class="container">
+      {% include 'header.html' %}
+        <div class="row">
+            <div class="content">
+              <h4 class="center text-med">{{ inc.fecha.strftime('%d/%m/%Y') }} - {{ inc.municipio }} - {{ inc.paraje }}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="content two_columns">
+              <img class="incendio" src="../images/incendio_{{ inc.idpif }}.png" />
+              <div class="pie_pagina">Localización del incendio (punto rojo) respecto a la zona de estudio (zona azul). Fuente EGIF e IGN</div>
+            </div>
+            <div class="content style-table">
+              <table>
+              <tbody>
+                <tr>
+                  <td>Fecha</td>
+                  <td class="text-right">{{ inc.fecha.strftime('%d/%m/%Y') }}</td>
+                </tr>
+                <tr>
+                  <td>Id PIF</td>
+                  <td class="text-right">{{ inc.idpif }}</td>
+                </tr>
+                <tr>
+                  <td>Id causa</td>
+                  <td class="text-right">{{ inc.idcausa }}</td>
+                </tr>
+                <tr>
+                  <td>Superficie arbolada</td>
+                  <td class="text-right">{{ inc.sup_arbolada }}</td>
+                </tr>
+                <tr>
+                  <td>Superficie no arbolada</td>
+                  <td class="text-right">{{ inc.sup_no_arbolada }}</td>
+                </tr>
+                <tr>
+                  <td>Superficie total</td>
+                  <td class="text-right">{{ inc.sup_total }}</td>
+                </tr>
+              </tbody>
+              </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="content">
+                <h4 class="text-med">Condiciones meteorológicas</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="content two_columns">
+              <img class="graph" src="../images/plot1_{{ inc.fecha.strftime('%d_%m_%Y') }}.png"/>
+              <div class="pie_pagina">Evolución de las temperaturas y humedad relativa del día en que se produjo el incendio. Datos de la estación meteorológica de Talayuela de Redarex</div>
+            </div>
+            <div class="content two_columns">
+              <img class="graph" src="../images/plot2_{{ inc.fecha.strftime('%d_%m_%Y') }}.png"/>
+              <div class="pie_pagina">Evolución de la intensidad del viento y su dirección el día en que se produjo el incendio. Datos de la estación meteorológica de Talayuela de Redarex</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="content two_columns">
+              <img class="wetter" src="https://www.wetterzentrale.de/maps/archive/{{ inc.fecha.strftime('%Y') }}/cfsr/CFSR_1_{{ inc.fecha.strftime('%Y%m%d') }}18_1.png"></img>
+              <div class="pie_pagina">Mapa de 500 hpa del día del incendio. Fuente wetterzentrale</div>
+            </div>
+            <div class="content two_columns">
+              <img class="wetter" src="https://www.wetterzentrale.de/maps/archive/{{ inc.fecha.strftime('%Y') }}/cfsr/CFSR_1_{{ inc.fecha.strftime('%Y%m%d') }}18_2.png"></img>
+              <div class="pie_pagina">Mapa de 850 hpa del día del incendio. Fuente wetterzentrale</div>
+            </div>
+        </div>
+    </div>
+  </page>
+  {% endfor %}
