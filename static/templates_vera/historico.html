@@ -10,17 +10,70 @@
     </div>
     <div class="row">
       <div class="content">
-        <p>Para realizar un estudio más detallado de las condiciones sinópticas que hacen que en esta zona un incendio se convierta en un incendio de 100 has o más, se ha decidido seleccionar los 20 incendios más grandes que ocurrieron a menos de 8 km de nuestra zona de estudio y analizar sus condiciones meteorológicas recurriendo a los mapas de 500 y 850 hpas que proporciona la página web wetterzentrale. También se han analizado los datos horarios de temperatura, humedad relativa, viento y dirección del viento que proporciona la estación meteorológica de REDAREX (Red de Aesoramiento al Regante de Extremadura). Los datos de este estudio se encuentran en el anexo 3 y en ellos se puede observar una clara recurrencia de condiciones de vientos de norte y este en los días en los que se produjo un incendio de 100 has o más.</p>
-        <p>En la Tabla 1 se muestran los datos más significativos de dichos incendios. </p>
+        <p>Para realizar un estudio más detallado de las situaciones sinópticas que hacen que en esta zona un incendio se convierta en un incendio de 100 has o más, se ha decidido seleccionar los 20 incendios más grandes que ocurrieron a menos de 8 km de nuestra zona de estudio y analizar sus condiciones meteorológicas recurriendo a los mapas de 500 y 850 hpas que proporciona la página web wetterzentrale. También se han analizado los datos horarios de temperatura, humedad relativa, viento y dirección del viento que proporciona la estación meteorológica de REDAREX (Red de Aesoramiento al Regante de Extremadura).</p>
+        <p>En la Tabla 1 se muestran los datos más significativos de dichos incendios.</p>
       </div>
     </div>
     <div class="row">
       <div class="content style-table">
-        {{ tabla.to_html(border=0, index=False) }}
-        <div class="pie_pagina">Tabla que muestra los 20 incendios más grandes ocurridos a menos de 8 km de la zona de estudio durante el periodo 2001-2019.</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Id PIF</th>
+              <th>Fecha</th>
+              <th>Municipio</th>
+              <th>Paraje</th>
+              <th>Causa</th>
+              <th>Sup arbolada</th>
+              <th>Sup no arbolada</th>
+              <th>Sup total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for inc in condiciones_sinopticas %}
+            {% if inc.epa %}
+            {% set row_class = 'red' %}
+            {% else %}
+            {% set row_class = 'blue' %}
+            {% endif %}
+            <tr class={{ row_class }}>
+              <td>{{ inc.idpif }}</td>
+              <td>{{ inc.deteccion }}</td>
+              <td>{{ inc.municipio }}</td>
+              <td>{{ inc.paraje }}</td>
+              <td>{{ inc.causa }}</td>
+              <td>{{ inc.superficiearboladatotal }}</td>
+              <td>{{ inc.superficinoarboladatotal }}</td>
+              <td>{{ inc.tot }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <div class="pie_pagina">Tabla que muestra los 20 incendios más grandes ocurridos a menos de 8 km de la zona de estudio durante el periodo 2001-2019. En rojo incendios ocurridos en EPA (del 1 de Junio al 15 de Octubre) y en azul incendios ocurridos en EPB (resto del año).</div>
+      </div>
+    </div> 
+    <div class="row">
+      <div class="content">
+        <p>En la siguiente tabla se muestra número de incendios (de los 20 más grandes) agrupados por situación sinóptica. En el anexo 2 se muestra justificación de cada incendio recurriendo a los mencionados mapas de 850 y de 500 hpa. Se puede observar una clara recurrencia de advención del Este y algo menor de baja térmica y advención del Noroeste</p>
+      </div>
+    </div> 
+    <div class="row">
+      <div class="content style-table">
+        {{ ss.to_html(border=0) }}
       </div>
     </div> 
     <div class="row">
       <div class="content">
         <p>Valiéndonos de las nuevas tecnologías nos ha resultado interesante hacer un estudio más detallado de los incendios que afectaron directamente a nuestra zona de estudio e intentar sacar el perimetro de los mismos. Para ello se ha recurrido a los imágenes multiespectrales de los satélites Landsat 8 y Sentinel 2 que proporciona la Comisión Europea y la Agencia Espacial Europea a través del programa Copernicus. El satélite Landsat 8 fue lanzado al espacio en 2013 y tiene una resolución para las bandas de nuestro interés de 30 metros por pixel y el Sentinel 2 fue lanzado en 2017 y tiene una resolución de 10 metros por pixel. Es por ello que sólo podemos obtener los perímetros desde el 2013 hasta la fecha y que sólo se vean reflejados los incendios de más de 5 has, pues incendios más pequeños son difíciles de localizar con esas resoluciones.</p>
         <p>El índice utilizado para identificar áreas quemadas ha sido el NBR (Normalized Burn Ratio) y se ha hecho un análisis de la severidad de cada incendio con el dNBR que se obtiene de restar los NBR de una imagen poterior al incendio a una imagen anterior al incendios. Los perímetros y la severidad obtenidos se pueden observar en el Anexo 3.</p>
+        <p>En cuanto a las causas, se muestra una tabla con el número de incendios, la superficie arbolada quemada y la superficie no arbolada agrupadas por causas de los incendios ocurridos a menos de 8 km de nuestra zona de estudio durante el periodo 2001-2019.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="content style-table">
+        {{ causas.to_html(border=0) }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="content">
+        <p>En el anexo 4 se muestra con más detalle las causas de los incendios.</p>

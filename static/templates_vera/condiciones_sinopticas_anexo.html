@@ -1,10 +1,15 @@
 {% for inc in condiciones_sinopticas %}
+  {% if inc.epa %}
+  {% set title_class = 'red' %}
+  {% else %}
+  {% set title_class = 'blue' %}
+  {% endif %}
   <page size="A4" type="anexo">
     <div class="container">
       {% include 'header.html' %}
         <div class="row">
             <div class="content">
-              <h4 class="center text-med">{{ inc.fecha.strftime('%d/%m/%Y') }} - {{ inc.municipio }} - {{ inc.paraje }}</h4>
+              <h4 class="center text-med {{ title_class }}">{{ inc.deteccion.strftime('%d/%m/%Y') }} - {{ inc.municipio }} - {{ inc.paraje }} - ({% if inc.epa %}EPA{% else %}EPB{% endif %})</h4>
             </div>
         </div>
         <div class="row">
@@ -17,27 +22,27 @@
               <tbody>
                 <tr>
                   <td>Fecha</td>
-                  <td class="text-right">{{ inc.fecha.strftime('%d/%m/%Y') }}</td>
+                  <td class="text-right">{{ inc.deteccion.strftime('%d/%m/%Y') }}</td>
                 </tr>
                 <tr>
                   <td>Id PIF</td>
                   <td class="text-right">{{ inc.idpif }}</td>
                 </tr>
                 <tr>
-                  <td>Id causa</td>
-                  <td class="text-right">{{ inc.idcausa }}</td>
+                  <td>Causa</td>
+                  <td class="text-right">{{ inc.causa }}</td>
                 </tr>
                 <tr>
                   <td>Superficie arbolada</td>
-                  <td class="text-right">{{ inc.sup_arbolada }}</td>
+                  <td class="text-right">{{ inc.superficiearboladatotal }}</td>
                 </tr>
                 <tr>
                   <td>Superficie no arbolada</td>
-                  <td class="text-right">{{ inc.sup_no_arbolada }}</td>
+                  <td class="text-right">{{ inc.superficinoarboladatotal }}</td>
                 </tr>
                 <tr>
                   <td>Superficie total</td>
-                  <td class="text-right">{{ inc.sup_total }}</td>
+                  <td class="text-right">{{ inc.tot }}</td>
                 </tr>
               </tbody>
               </table>
@@ -50,21 +55,26 @@
         </div>
         <div class="row">
             <div class="content two_columns">
-              <img class="graph" src="../images/plot1_{{ inc.fecha.strftime('%d_%m_%Y') }}.png"/>
+              <img class="graph" src="../images/plot1_{{ inc.deteccion.strftime('%d_%m_%Y') }}.png"/>
               <div class="pie_pagina">Evolución de las temperaturas y humedad relativa del día en que se produjo el incendio. Datos de la estación meteorológica de Talayuela de Redarex</div>
             </div>
             <div class="content two_columns">
-              <img class="graph" src="../images/plot2_{{ inc.fecha.strftime('%d_%m_%Y') }}.png"/>
+              <img class="graph" src="../images/plot2_{{ inc.deteccion.strftime('%d_%m_%Y') }}.png"/>
               <div class="pie_pagina">Evolución de la intensidad del viento y su dirección el día en que se produjo el incendio. Datos de la estación meteorológica de Talayuela de Redarex</div>
             </div>
         </div>
         <div class="row">
+            <div class="content">
+              <p><strong>Situación sinóptica:</strong>{{ inc.texto }}</p>
+            </div>
+        </div>
+        <div class="row">
             <div class="content two_columns">
-              <img class="wetter" src="https://www.wetterzentrale.de/maps/archive/{{ inc.fecha.strftime('%Y') }}/cfsr/CFSR_1_{{ inc.fecha.strftime('%Y%m%d') }}18_1.png"></img>
+              <img class="wetter" src="https://www.wetterzentrale.de/maps/archive/{{ inc.deteccion.strftime('%Y') }}/cfsr/CFSR_1_{{ inc.deteccion.strftime('%Y%m%d') }}18_1.png"></img>
               <div class="pie_pagina">Mapa de 500 hpa del día del incendio. Fuente wetterzentrale</div>
             </div>
             <div class="content two_columns">
-              <img class="wetter" src="https://www.wetterzentrale.de/maps/archive/{{ inc.fecha.strftime('%Y') }}/cfsr/CFSR_1_{{ inc.fecha.strftime('%Y%m%d') }}18_2.png"></img>
+              <img class="wetter" src="https://www.wetterzentrale.de/maps/archive/{{ inc.deteccion.strftime('%Y') }}/cfsr/CFSR_1_{{ inc.deteccion.strftime('%Y%m%d') }}18_2.png"></img>
               <div class="pie_pagina">Mapa de 850 hpa del día del incendio. Fuente wetterzentrale</div>
             </div>
         </div>

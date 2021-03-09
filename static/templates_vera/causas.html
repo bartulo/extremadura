@@ -1,0 +1,15 @@
+<page size="A4" type="anexo">
+  <div class="container">
+    {% include 'header.html' %}
+    <div class="row">
+      <div class="content">
+        <h4 class="text-med center">Causas de los incendios producidos en la zona de estudio durante el periodo 2001-2019</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="content style-table">
+        {{ causas_detalle.to_html(border=0, index=False) }}
+      </div>
+    </div>
+  </div>
+</page>

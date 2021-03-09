@@ -98,6 +98,12 @@ h4 {
 .text-right {
   text-align: right;
 }
+.red {
+  color: crimson;
+}
+.blue {
+  color: royalblue;
+}
 page:not([type="anexo"]):after {
   content: 'Página ' counter(page);
   position: absolute;
