@@ -1,4 +1,10 @@
-  {% for estacion in ['madrigal', 'piornal'] %}
+{% if comarca == 'vera' %}
+  {% set estaciones_jinja = ['madrigal', 'piornal'] %}
+{% else %}
+  {% set estaciones_jinja = ['tornavacas', 'piornal'] %}
+{% endif %}
+
+{% for estacion in estaciones_jinja %}
   <page size="A4" type="anexo">
     <div class="container">
       {% include 'header.html' %}

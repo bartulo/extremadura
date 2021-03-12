@@ -1,0 +1,30 @@
+<p>Para la caracterización del clima hemos usado los datos diarios proporcionados por las estaciones meteorológicas que la AEMET tiene localizadas en los municipios de Madrigal y Piornal. Hemos seleccionado estas estaciones pues son las más cercanas a nuestra zona de estudio y la estación de Piornal se encuentra además en un rango altitudinal muy parecido a dicha zona. El periodo de análisis de los datos meteorológicos es 2013-2020.</p>
+<p>En el anexo 2 se muestran los climodiagramas obtenidos y en ellos se observa que la precipitación es muy variable anual e interanualmente, pero que ésta se concentra sobretodo en los meses de primavera y otoño. En los meses de verano se observa una sequía pues la curva de la temperatura queda por encima de la de precitaciones. Este dato es especialmente importante para el estudio que nos atañe, pues significa que durante dichos meses la vegetación de la zona sufrirá stress hídrico y estará bastante disponible para un hipotético incendio forestal.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="content estaciones">
+            <img class="estaciones_img" src="../../../IMAGENES/estaciones_aemet_{{ comarca }}.png" />
+              <div class="pie_pagina">Localización respecto a la zona de estudio de las estaciones meteorológicas usadas para la elaboración de los climodiagramas.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="content">
+<p>La temperatura media anual se encuentra en torno a 14 ºC en la estación de Madrigal que se encuentra situada a 464 metros de altitud respecto al nivel del mar y de 12 ºC en la estación de Piornal a 1260 msn. Se ve, como es lógico, una clara influencia de la altitud en la temperatura anual y nos atrevemos a decir que nuestra zona de estudio se encuentra en las regiones bioclimáticas supramediterraneo y oromediterraneo según la clasificación de Rivas-Martínez, que establece unos límites de temperatura anual de 8-13 ºC en la primera región y 4-8 ºC en la segunda región, que correspondería con las partes más altas de nuestra zona de estudio.</p>
+<p>A continuación se muestran unas tablas con los días de lluvía, los días precedidos de 5 días o más sin llvuia, los días precedidos de 8 días o más sin lluvia, los días de nieve y los días de heladas para las estaciones meteorológicas mencionadas. Los datos están agrupados por el periodo comprendido entre el 1 de noviembre y el 15 de marzo de cada año que se tienen datos. También se muestran el número de días que sería propicio propicio quemar tanto en parcelas de solana como de umbría. Estos días son los que cumplen la ventana de prescrición detallada en el plan de quema.</p>
+            {% for datos in datos_meteo %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="content">
+            <p>Estación meteorológica de {{ datos.estacion | capitalize }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="content style-table">
+            {{ datos.meteo.to_html(border=0) }}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="content">

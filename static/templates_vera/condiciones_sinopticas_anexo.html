@@ -1,3 +1,16 @@
+
+  <page size="A4" type="anexo">
+    <div class="container">
+      {% include 'header.html' %}
+        <div class="row">
+            <div class="content">
+              <h4 class="center text-med">Mapa con los perímetros de los 10 incendios más grandes producidos a menos de 8km de distancia de la zona de estudio durante el periodo 2001-2019.</h4>
+              <img class="width_100" src="../../../IMAGENES/historico_perimetros.png">
+              <div class="pie_pagina">Se muestran los 10 incendios más grandes registrados a menos de 8km de la zona de estudio en el periodo 2001-2019. El método de obtención de los perímetros ha sido mediante el análisis de imágenes satélite, en concreto el satélite Landsat8 para los incendios producidos a partir del año 2013 y del satélite Landsat 7 en los incendios anteriores al 2013. En las páginas siguientes del presente anexo se analizan las condiciones meteorológicas que se dieron en cada uno de los incendios. También se analizan las condiciones meteorológicas para los siguientes 10 incendios más grandes (20 en total). Para la fecha 11-04-2017 se registraron estadísticamente dos incendios y analizando más en detalle las estadísticas se observaron varios incendios en esas fechas en la misma zona; el perímetro que se muestra es el resultado de todo el conjunto de esos incendios en esas fechas, ya que con los métodos utilizados nos ha sido imposible identificar perímetros individuales de cada incendio en esas fechas concretas.</div>
+            </div>
+        </div>
+    </div>
+  </page>
 {% for inc in condiciones_sinopticas %}
   {% if inc.epa %}
   {% set title_class = 'red' %}
@@ -15,7 +28,7 @@
         <div class="row">
             <div class="content two_columns">
               <img class="incendio" src="../images/incendio_{{ inc.idpif }}.png" />
-              <div class="pie_pagina">Localización del incendio (punto rojo) respecto a la zona de estudio (zona azul). Fuente EGIF e IGN</div>
+              <div class="pie_pagina">{% if loop.index < 11 %} Localización del perimetro del incendio en rojo respecto a la zona de estudio (zona azul). Fuente EGIF e IGN {% else %} Localización del incendio (punto rojo) respecto a la zona de estudio (zona azul). Fuente EGIF e IGNi{% endif %}</div>
             </div>
             <div class="content style-table">
               <table>

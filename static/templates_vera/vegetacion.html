@@ -1,0 +1,58 @@
+<h3>3.5.1 FIGURAS DE PROTECCIÓN.</h3>
+<p>La zona de estudio se encuentra dentro del ZEC Sierra de Gredos y Valle del Jerte perteneciente a la Red Natura 2000. En la imagen se muestra nuestra zona de estudio en relación al ZEC.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+    <img class="width_100" src="../images/zec_{{ zona }}.png">
+    <div class="pie_pagina">Localización de la zona de estudio (perímetro en negro) respecto a ZEC Sierra de Gredos y valle del Jerte (en azul)</div>
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+<h3>3.5.2 HABITATS Y TAXONOMIA.</h3>
+<p>La Red Natura 2000 es el principal instrumento para la conservación de la naturaleza en la Unión Europea y se basa en dos figuras de protección: los ZEC (Zonas Especiales de Conservación) establecidas de acuerdo a la Directiva Habitas y las ZEPA (Zona de Especial Protección para las Aves) designadas en virtud de la Directiva Aves.</p>
+<p>Como hemos visto en el apartado anterior nuestra zona de estudio se encuentra dentro de la ZEC Sierra de Gredos y valle del Jerte. Para caracterizar los habitats que se encuentran en la misma hemos recurrido al atlas de habitats que se publicó en el año 2005.</p>
+<p>A continuación se muestra una tabla con los habitats prioritarios presentes en nuestra zona de estudio y un mapa con la localización de los mismos</p>
+  </div>
+</div>
+<div class="row">
+  <div class="content style-table">
+    {{ habitats_prioritarios.to_html(border=0, index=False) }}
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+    <img class="img_center perimetro" src="../images/habitats_prioritarios_{{ zona }}.png">
+    <div class="pie_pagina">Localización de los habitats prioritarios presentes en la zona de estudio.</div>
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+    <p>Además de los habitats prioritarios en la zona de estudio están presentes muchos otros habitats que se muestran en la siguiente tabla. En el anexo 2 se muestran la localización de cada uno de los habitats de la tabla.</p>
+    <p>{{ lipsum(1) }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="content style-table">
+    {{ habitats.to_html(border=0, index=False) }}
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+<h3>3.5.3 MODELOS DE COMBUSTIBLE.</h3>
+    <p>A continuación se muestra una imagen con los modelos de combustible presentes en la zona de estudio según la clasificación de Rothermel.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+    <img class="img_center perimetro" src="../images/mod_comb_{{ zona }}.png">
+    <div class="pie_pagina ">Mapa de modelos de combustible según la clasificación de Rothermel.</div>
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+<h3>3.5.4 ESTRUCTURA VERTICAL Y HORIZONTAL.</h3>
+{% if arboles_singulares %}
+<h3>3.5.5 ÁRBOLES SINGULARES.</h3>
+{% endif %}

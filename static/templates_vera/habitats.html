@@ -1,0 +1,55 @@
+<page size="A4" type="anexo">
+    <div class="container">
+      {% include 'header.html' %}
+        <div class="row">
+            <div class="content">
+              <h4 class="center text-med">Habitats</h4>
+            </div>
+        </div>
+        {% for habitat in habitats_anexo %}
+        <div class="row">
+          <div class="content">
+            <h4 class="center text-small">{{ habitat.generico }}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="content style-table two_columns">
+            <table>
+              <tbody>
+                <tr>
+                  <td>Código UE</td>
+                  <td class="text-right">{{ habitat.codue }}</td>
+                </tr>
+                <tr>
+                  <td>Nombre genérico</td>
+                  <td class="text-right">{{ habitat.generico }}</td>
+                </tr>
+                <tr>
+                  <td>Nombre común</td>
+                  <td class="text-right">{{ habitat.nom_comun }}</td>
+                </tr>
+                <tr>
+                  <td>Nombre habitat</td>
+                  <td class="text-right">{{ habitat.nom_habita }}</td>
+                </tr>
+                <tr>
+                  <td>Alianza</td>
+                  <td class="text-right">{{ habitat.alianza }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="content two_columns">
+            <img class="subparcela img_center" src="../images/habitats_{{ habitat.codue }}_{{ habitat.generico }}_{{ zona }}.png"/>
+          </div>
+      </div>
+      {% if loop.index % 3 == 0 and loop.index != habitats_anexo | length %}
+          </div>
+      </page>
+      <page size="A4" type="anexo">
+          <div class="container">
+      {% include 'header.html' %}
+      {% endif %}
+      {% endfor %}
+    </div>
+</page>
