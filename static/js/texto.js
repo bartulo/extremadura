@@ -48,7 +48,6 @@ var breakImage = function(elem, rowIndex) {
 var breakTable = function(elem, rowIndex) {
   var contentBreakable = elem.querySelectorAll('tr');
   var piePagina = elem.querySelector('.pie_pagina');
-  console.log(piePagina);
 
   for (var i=0; i < contentBreakable.length; i++) {
     if (contentBreakable[i].parentNode.tagName == 'THEAD') {
@@ -71,11 +70,14 @@ var breakTable = function(elem, rowIndex) {
 
   if (contentIndex) { // SI no pongo este if añade el header al tbody si el header coincide son el salto de página
     for (var i=contentIndex; i < contentBreakable.length; i++) {
-      console.log(contentBreakable[contentIndex])
       newTableBody.appendChild(contentBreakable[i]);
     }
   } else {
     elem.innerHTML = '';
+    for (var i=contentIndex; i < contentBreakable.length; i++) {
+      newTableBody.appendChild(contentBreakable[i]);
+    }
+    console.log(elem);
   }
 
   newTable.appendChild(newTableBody);

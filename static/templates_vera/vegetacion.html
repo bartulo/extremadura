@@ -30,7 +30,6 @@
 <div class="row">
   <div class="content">
     <p>Además de los habitats prioritarios en la zona de estudio están presentes muchos otros habitats que se muestran en la siguiente tabla. En el anexo 2 se muestran la localización de cada uno de los habitats de la tabla.</p>
-    <p>{{ lipsum(1) }}</p>
   </div>
 </div>
 <div class="row">
@@ -52,7 +51,18 @@
 </div>
 <div class="row">
   <div class="content">
-<h3>3.5.4 ESTRUCTURA VERTICAL Y HORIZONTAL.</h3>
-{% if arboles_singulares %}
-<h3>3.5.5 ÁRBOLES SINGULARES.</h3>
+    <h3>3.5.4 ESTRUCTURA VERTICAL Y HORIZONTAL.</h3>
+    {% if arboles_singulares %}
+    <h3>3.5.5 ÁRBOLES SINGULARES.</h3>
+    <p>Dentro de la zona de estudio se encuentra localizado una tejeda catalogada dentro de los árboles singulares de Estremadura, en la siguiente imagen se muestra localización de la misma.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+    <img class="img_center perimetro" src="../images/arboles_singulares_losar.png">
+    <div class="pie_pagina ">Localización de los Tejos de Escobarejo sobre mapa topográfico. Fuente: elaboración propia a partir del libro "Árboles singulares de Extremadura" editado por la Consejería de Agricultura y Medio Ambiente.</div>
+  </div>
+</div>
+<div class="row">
+  <div class="content">
 {% endif %}

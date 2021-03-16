@@ -1,5 +1,6 @@
+{% if zona == 'losar' %}
 <p>Todo la supeficie que conforma la zona de estudio es monte de utilidad pública.</p>
-<!--
+{% else %}
 </div>
 </div>
 <div class="row">
@@ -13,25 +14,15 @@
       <thead>
         <tr>
           <td>Nombre de la parcela</td>
-          <td>Persona de contacto 1</td>
-          <td>Contacto 1</td>
-          <td>Persona de contacto 2</td>
-          <td>Contacto 2</td>
           <td>Superficie parcela</td>
         </tr>
       </thead>
       <tbody>
         {% for cat in catastro %}
-        {% if cat.nombre %}
         <tr>
-          <td>{{ cat.nombre }}</td>
-          <td>{{ cat.propietario1 }}</td>
-          <td>{{ cat.contacto1 }}</td>
-          <td>{% if cat.propietario2 %}{{ cat.propietario2 }}{% endif %}</td>
-          <td>{% if cat.contacto2 %}{{ cat.contacto2 }}{% endif %}</td>
-          <td class="center">{{ cat.sup }}</td>
+          <td>{{ cat.nombre or zona+cat.masa }}</td>
+          <td class="center">{{ cat.sup }} has</td>
         </tr>
-        {% endif %}
         {% endfor %}
       </tbody>
     </table>
@@ -39,5 +30,5 @@
 </div>
 <div class="row">
   <div class"content">
-    <p>En el Anexo se muestra la ubicación de las parcelas catastratles y los diferentes usos que se dan en ellas.</p>
--->
+    <p>En el Anexo se muestra la ubicación de las parcelas catastrales y los diferentes usos que se dan en ellas.</p>
+    {% endif %}

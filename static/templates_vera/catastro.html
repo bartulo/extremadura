@@ -14,7 +14,7 @@
         {% for parcela in catastro %}
         <div class="row">
           <div class="content">
-            <h4 class="center text-small">{{ parcela.refcat }}</h4>
+            <h4 class="center text-small">{{ parcela.nombre or zona + parcela.masa }}<h4>
           </div>
         </div>
         <div class="row">
@@ -22,37 +22,25 @@
             <table>
               <tbody>
                 <tr>
-                  <td>Referencia catastral</td>
-                  <td class="text-right">{{ parcela.refcat }}</td>
-                </tr>
-                <tr>
-                  <td>Fecha de alta</td>
-                  <td class="text-right">{{ parcela.fecha }}</td>
+                  <td>Nombre</td>
+                  <td class="text-right">{{ parcela.nombre or zona + parcela.masa }}</td>
                 </tr>
                 <tr>
                   <td>Superficie</td>
                   <td class="text-right">{{ parcela.sup }} has</td>
                 </tr>
-                <tr>
-                  <td>Persona de contacto</td>
-                  <td class="text-right">{{ parcela.propietario1 }}</td>
-                </tr>
-                <tr>
-                  <td>Contacto</td>
-                  <td class="text-right">{{ parcela.contacto1 }}</td>
-                </tr>
               </tbody>
             </table>
           </div>
           <div class="content">
-            <img class="subparcela" src="../images/subparcela_{{ parcela.refcat }}.png"/>
+            <img class="subparcela" src="../images/subparcela_{{ parcela.nombre | replace(' ', '_') if parcela.nombre else zona + parcela.masa }}.png"/>
           </div>
       </div>
-      {% if parcela.key == 1 or parcela.key == 4 or parcela.key == 7 or parcela.key == 10 %}
-          </div>
-      </page>
-      <page size="A4" type="anexo">
-          <div class="container">
+      {% if (loop.index + 1) % 3 == 0 and loop.index != catastro | length %}
+    </div>
+</page>
+<page size="A4" type="anexo">
+    <div class="container">
       {% include 'header.html' %}
       {% endif %}
       {% endfor %}
