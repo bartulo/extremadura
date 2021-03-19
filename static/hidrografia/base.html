@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/clima.css">
+<link rel="stylesheet" href="../css/curvas.css">
+</head>
+
+<body>
+  {% for zona in zonas %}
+  <page size="A3">
+  <div class="container">
+    {% include 'header.html' %}
+    <div class="row">
+      <div class="content">
+        <h1>Hidrografía {{ zona }}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="content">
+        <img class="curvas" src="../images/hidrografia_curvas_{{ zona }}.png">
+      </div>
+    </div>
+  </div>
+  </page>
+  {% endfor %}
+</body>
+</html>

@@ -12,55 +12,79 @@
   <div class="content">
 <h3>3.5.2 HABITATS Y TAXONOMIA.</h3>
 <p>La Red Natura 2000 es el principal instrumento para la conservación de la naturaleza en la Unión Europea y se basa en dos figuras de protección: los ZEC (Zonas Especiales de Conservación) establecidas de acuerdo a la Directiva Habitas y las ZEPA (Zona de Especial Protección para las Aves) designadas en virtud de la Directiva Aves.</p>
-<p>Como hemos visto en el apartado anterior nuestra zona de estudio se encuentra dentro de la ZEC Sierra de Gredos y valle del Jerte. Para caracterizar los habitats que se encuentran en la misma hemos recurrido al atlas de habitats que se publicó en el año 2005.</p>
-<p>A continuación se muestra una tabla con los habitats prioritarios presentes en nuestra zona de estudio y un mapa con la localización de los mismos</p>
+<p>Como hemos visto en el apartado anterior nuestra zona de estudio se encuentra dentro de la ZEC Sierra de Gredos y valle del Jerte. Dentro de este ZEC se definen varias Zonas de Interés Prioritario (ZIP) y parte de nuestra zona de estudio se encuentra dentro del ZIP 3: "Sierra de Béjar y Traslasierra, Tormantos y Sierra de Gredos".</p>
+<p>Para caracterizar los habitats que se encuentran en nuestra zona de estudio hemos recurrido al atlas de habitats que se publicó en el año 2005.</p>
+<p>A continuación se muestra una tabla con los habitats prioritarios presentes en nuestra zona de estudio y un mapa con la localización de los mismos:</p>
   </div>
 </div>
 <div class="row">
   <div class="content style-table">
-    {{ habitats_prioritarios.to_html(border=0, index=False) }}
+    {{ habitats_prioritarios.to_html(border=0) }}
   </div>
 </div>
 <div class="row">
   <div class="content">
     <img class="img_center perimetro" src="../images/habitats_prioritarios_{{ zona }}.png">
-    <div class="pie_pagina">Localización de los habitats prioritarios presentes en la zona de estudio.</div>
+    <div class="pie_pagina">Localización de los habitats prioritarios presentes en la zona de estudio. Fuente: elaboración propia a partir de los datos del Atlas de Habitats del 2005.</div>
   </div>
 </div>
 <div class="row">
   <div class="content">
-    <p>Además de los habitats prioritarios en la zona de estudio están presentes muchos otros habitats que se muestran en la siguiente tabla. En el anexo 2 se muestran la localización de cada uno de los habitats de la tabla.</p>
+    <p>Además de los habitats prioritarios en la zona de estudio están presentes muchos otros habitats que se muestran en la siguiente tabla. En el anexo 2 se muestran la localización de cada uno de los habitats respecto a la zona de estudio.</p>
   </div>
 </div>
 <div class="row">
   <div class="content style-table">
-    {{ habitats.to_html(border=0, index=False) }}
+    {{ habitats.to_html(border=0) }}
   </div>
 </div>
 <div class="row">
   <div class="content">
-<h3>3.5.3 MODELOS DE COMBUSTIBLE.</h3>
+    <p>A continuación procedemos a hacer una caracterización taxonómica de cada habitat según los inventarios que hemos realizado en nuestras diferentes visitas a la zona de estudio:</p>
+    <p><strong>Brezales: </strong>constituido principalmente por Erica australis o Erica aroborea, menos frecuentemente Erica umbellata</p>
+    <p><strong>Brezales-enebrales: </strong>Brezales con presencia de Juniperus oxycedrus.</p>
+    <p><strong>Piornales: </strong>Constituido por una mezcla de Cytisus oromediterraneus (también conocido como Cytisus purgans o Genista purgans) y Cytisus multiflorus, en este habitat también se puede dar Echinospartum barnadesii y Adenocarpus hispanicus</p>
+    <p><strong>Enebrales rastreos: </strong>Especie principal Juniperus communis.</p>
+    <p><strong>Pastizales duros: </strong>constituido por diferentes especies de gramíneas de poca palatabilidad</p>
+    <p><strong>Melojares: </strong>la especie principal es Quercus pyrenaica. En este habitat también puede aparecer regenerado de encina y bosquetes de Juniperus oxycedrus.</p>
+    <p><strong>Vegetación glerícola: </strong>formada por especies que crecen en pedregales, canchales o derrubios de ladera. Consituido por varias especies entre ellas algunas de los generos Rumex o Digitalis.</p>
+    <p><strong>Vegetación rupícola: </strong>Vegetación que crece en las oquedades de las rocas.</p>
+    <p><strong>Céspedes crasifolios: </strong>Vegetación compuesta por diferentes especies del género Sedum.</p>
+    <p>Para el presente estudio los habitats en los que vamos a enfocar nuestras actuaciones son principalmente los piornales, puesto que los brezales en estos parajes adquieren unas tallas que hacen desaconsejable su gestión mediante quemas prescritas</p>
+    <h3>3.5.3 ESTRUCTURA VERTICAL Y HORIZONTAL.</h3>
+    <p>Para estudiar la estructura, tanto vertical como horizontal, de la vegetación presente en nuestra zona de estudio hemos recurrido a los datos Lidar para poder obtener una imagen de la altura de la misma. Por desgracia, existen dos inconvenientes con estos datos, el primero es que para la zona de estudio los datos más recientes que proporciona el IGN son del 2010 (en la fecha en la que se redactó el presente estudio estaba a punto de publicarse los datos de la 2ª cobertura que datan de 2017) y el segundo es que existen fallos de clasificación, sobre todo en las zonas altas de montaña, donde es posible que terrenos rocosos sean clasificados como vegetación y en otras ocasiones sucede que la vegetación es clasificada como terreno. De todas maneras y a pesar de estos inconvenientes nos parece interesante esta fuente de información sobretodo para localizar las zonas arboreas dentro de nuestra zona de estudio</p>
+    <p>En las zonas altas, más allá de la línea del bosque, la vegetación se agrupa en rodales normalmente monoespecíficos de matorral de alturas que pueden ir desde el medio metro hasta los 4 metros y están  formadas por las especies de los habitats piornales y brezales que hemos visto en el apartado anterior.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+    <img class="img_center perimetro" src="../images/alturas_{{ zona }}.png">
+    <div class="pie_pagina">Mapa con las alturas de la vegetación en nuestra zona de estudio. Las alturas está representadas por colores según los valores de la leyenda que se muestra a la derecha de la imagen. Los valores están en metros. Fuente: elaboración propia a partir de datos Lidar proporcionados por el IGN</div>
+  </div>
+</div>
+<div class="row">
+  <div class="content">
+<h3>3.5.4 MODELOS DE COMBUSTIBLE.</h3>
     <p>A continuación se muestra una imagen con los modelos de combustible presentes en la zona de estudio según la clasificación de Rothermel.</p>
   </div>
 </div>
 <div class="row">
   <div class="content">
     <img class="img_center perimetro" src="../images/mod_comb_{{ zona }}.png">
-    <div class="pie_pagina ">Mapa de modelos de combustible según la clasificación de Rothermel.</div>
+    <div class="pie_pagina ">Mapa de modelos de combustible según la clasificación de Rothermel. Fuente: Plan INFOEX</div>
   </div>
 </div>
 <div class="row">
   <div class="content">
-    <h3>3.5.4 ESTRUCTURA VERTICAL Y HORIZONTAL.</h3>
     {% if arboles_singulares %}
     <h3>3.5.5 ÁRBOLES SINGULARES.</h3>
-    <p>Dentro de la zona de estudio se encuentra localizado una tejeda catalogada dentro de los árboles singulares de Estremadura, en la siguiente imagen se muestra localización de la misma.</p>
+    <p>Dentro de la zona de estudio se encuentra localizado una tejeda catalogada dentro de los árboles singulares de Extremadura. En la siguiente imagen se muestra localización de la misma.</p>
   </div>
 </div>
 <div class="row">
   <div class="content">
     <img class="img_center perimetro" src="../images/arboles_singulares_losar.png">
-    <div class="pie_pagina ">Localización de los Tejos de Escobarejo sobre mapa topográfico. Fuente: elaboración propia a partir del libro "Árboles singulares de Extremadura" editado por la Consejería de Agricultura y Medio Ambiente.</div>
+    <div class="pie_pagina ">Localización de los Tejos de Escobarejo sobre mapa topográfico. Fuente: elaboración propia a partir del libro "Árboles singulares de Extremadura" editado por la Consejería de Agricultura y Medio Ambiente de la Junta de Extremadura.</div>
   </div>
 </div>
 <div class="row">

@@ -72,12 +72,12 @@ var breakTable = function(elem, rowIndex) {
     for (var i=contentIndex; i < contentBreakable.length; i++) {
       newTableBody.appendChild(contentBreakable[i]);
     }
-  } else {
+  } else if (contentIndex == 0) {
     elem.innerHTML = '';
     for (var i=contentIndex; i < contentBreakable.length; i++) {
       newTableBody.appendChild(contentBreakable[i]);
     }
-    console.log(elem);
+    console.log(contentIndex);
   }
 
   newTable.appendChild(newTableBody);
@@ -94,11 +94,15 @@ var breakTable = function(elem, rowIndex) {
   newContainer.classList.add('container');
   newContainer.appendChild(header.cloneNode(true));
 
-  var newRow = document.createElement('div');
-  newRow.classList.add('row');
+  if (contentIndex != undefined) {
+    console.log(newContent);
 
-  newRow.appendChild(newContent);
-  newContainer.appendChild(newRow)
+    var newRow = document.createElement('div');
+    newRow.classList.add('row');
+
+    newRow.appendChild(newContent);
+    newContainer.appendChild(newRow)
+  }
 
   var rowsBreakables = document.getElementsByClassName('breakable')[0].children;
   var l = rowsBreakables.length;
