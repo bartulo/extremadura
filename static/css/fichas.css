@@ -1,0 +1,82 @@
+.boxed {
+  border: 1px solid black;
+  justify-content: space-between;
+  margin: 20px;
+  padding-left: 20px;
+}
+p{
+  font-size: 16px;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+.subcontent {
+  width: 45%; 
+  padding: 0 20px
+}
+.width_100 {
+  width: 100%;
+}
+.subcontent p {
+  margin: 5px;
+}
+.width_75 {
+  width:75%;
+}
+.caja {
+  float: right;
+  margin: 5px;
+  border: 1px solid black;
+  width: 16px;
+  text-align: center;
+  height:16px;
+}
+.larga {
+  width: 80%;
+  text-align: left;
+  padding: 4px;
+  margin: 0;
+}
+.width_30 {
+  width: 30%;
+}
+.width_50 {
+  width: 60%;
+}
+.media {
+  width: 20%;
+  text-align: left;
+  padding: 4px;
+  margin: 0;
+}
+.raw-table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+.raw-table tr {
+  height: 30px;
+}
+.raw-table td {
+  border: 1px solid black;
+}
+.padding_10 {
+  padding: 20px 10px;
+}
+.padding_10 p {
+  text-decoration: underline;
+  font-size: 18px
+}
+.img_parcela {
+  max-width: 100%;
+  max-height: 900px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
