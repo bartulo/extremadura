@@ -1,35 +1,35 @@
-.boxed {
+page[title="fichas"] .boxed {
   border: 1px solid black;
   justify-content: space-between;
   margin: 20px;
   padding-left: 20px;
 }
-p{
+page[title="fichas"] p{
   font-size: 16px;
 }
-.content {
+page[title="fichas"] .content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.break {
+page[title="fichas"] .break {
   flex-basis: 100%;
   height: 0;
 }
-.subcontent {
-  width: 45%; 
+page[title="fichas"] .subcontent {
+  width: 46%; 
   padding: 0 20px
 }
-.width_100 {
+page[title="fichas"] .width_100 {
   width: 100%;
 }
-.subcontent p {
+page[title="fichas"] .subcontent p {
   margin: 5px;
 }
-.width_75 {
+page[title="fichas"] .width_75 {
   width:75%;
 }
-.caja {
+page[title="fichas"] .caja {
   float: right;
   margin: 5px;
   border: 1px solid black;
@@ -37,45 +37,62 @@ p{
   text-align: center;
   height:16px;
 }
-.larga {
+page[title="fichas"] .larga {
   width: 80%;
   text-align: left;
   padding: 4px;
   margin: 0;
 }
-.width_30 {
+page[title="fichas"] .medio-larga {
+  width: 70%;
+  text-align: left;
+  padding: 4px;
+  margin: 0;
+
+}
+page[title="fichas"] .width_30 {
   width: 30%;
 }
-.width_50 {
+page[title="fichas"] .width_50 {
   width: 60%;
 }
-.media {
+page[title="fichas"] .media {
   width: 20%;
   text-align: left;
   padding: 4px;
   margin: 0;
 }
-.raw-table {
+page[title="fichas"] .raw-table {
   width: 100%;
   text-align: center;
   border-collapse: collapse;
 }
-.raw-table tr {
+page[title="fichas"] .raw-table tr {
   height: 30px;
 }
-.raw-table td {
+page[title="fichas"] .raw-table td {
   border: 1px solid black;
 }
-.padding_10 {
+page[title="fichas"] .celda-alta td {
+  height: 60px;
+}
+page[title="fichas"] .padding_10 {
   padding: 20px 10px;
 }
-.padding_10 p {
+page[title="fichas"] .padding_10 p {
   text-decoration: underline;
   font-size: 18px
 }
-.img_parcela {
+page[title="fichas"] .img_parcela {
   max-width: 100%;
   max-height: 900px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+page[title="fichas"] .img_parcela_topo {
+  max-width: 100%;
+  max-height: 700px;
   display: block;
   margin-left: auto;
   margin-right: auto;

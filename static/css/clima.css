@@ -114,6 +114,9 @@ page:not([type="anexo"]):after {
 page .page-break {
   page-break-after: always;
 }
+li {
+  font-size: 26px;
+}
 @media print {
   body, page {
     margin-top: 30px;

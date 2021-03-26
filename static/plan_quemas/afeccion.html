@@ -1,7 +1,7 @@
 <p>Las parcelas se encuentran situadas dentro del ZEC SIERRA DE GREDOS Y VALLE DEL JERTE (Cod. ES4320038) perteneciente a la Red Natura 2000. Los habitats que se verán afectados en cada parcela son los siguientes (datos obtenidos del atlas de habitats de España 2005):</p>
   </div>
 </div>
-{% for habitat in habitats %}
+{% for num in range(10) %}
 <div class="row">
   <div class="content">
     <p>Parcela {{ loop.index }}:</p>
@@ -9,7 +9,7 @@
 </div>
 <div class="row">
   <div class="content style-table">
-    {{ habitat.to_html(border=0, index=False) }}
+    {{ habitats.loc[habitats['Parcela'] == 'Parcela ' + loop.index | string].to_html(border=0, index=False, columns = ['Código UE', 'Descripción', 'Superficie Parcela', 'Superficie del hábitat en la parcela', 'Porcentaje de parcela ocupado por el hábitat', 'Superficie del hábitat en el ZEC', 'Porcentaje de la superficie del hábitat en la parcela sobre el total del hábitat en el ZEC']) }}
   </div>
 </div>
 {% endfor %}

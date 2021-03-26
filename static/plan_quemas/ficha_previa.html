@@ -1,0 +1,305 @@
+  {% for parcela in parcelas %}
+  <page size="A4" type="anexo" title="fichas">
+  <div class="container">
+  {% include 'header.html' %}
+    <div class="row">
+      <div class="content">
+        <h4>Planificación previa a la quema / {{ parcela.nombre }}</h4>
+      </div>
+    </div>
+    <div class="row boxed">
+      <div class="content width_100">
+        <p><strong>1. Localización</strong></p>
+        <div class="break"></div>
+        <div class="subcontent width_75">
+        {% for key, value in [('CCAA', 'Extremadura'), ('Provincia', 'Cáceres'), ('Municipio', 'Tornavacas'), ('Paraje', ''), ('Monte', '')] %}
+          <p style="float: left">{{ key }}</p>
+          <div class="caja larga">{{ value }}</div>
+          <div style="clear:both"></div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="row boxed">
+      <div class="content width_100">
+          <p><strong>2. Objetivos específicos de la quema</strong></p>
+        <div class="break"></div>
+        <div class="subcontent">
+          {% for texto in ['Reducción de riesgos de incendios', 'Daños cinegéticos', 'Creación de accesos (a fincas, cazaderos, etc.)', 'Regeneración de pastos', 'Preparación para la repoblación forestal'] %}
+          <p style="float: left">{{ texto }}</p>
+          <div class="caja"></div>
+          <div style="clear:both"></div>
+          {% endfor %}
+        </div>
+        <div class="subcontent">
+          {% for texto in ['Eliminación de matorral para limpieza de fincas', 'Control sanitario', 'Apertura y mantenimiento de líneas de defensa', 'Otros tratamientos selvícolas', 'Otros'] %}
+          <p style="float: left">{{ texto }}</p>
+          <div class="caja"></div>
+          <div style="clear:both"></div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="row boxed">
+      <div class="content width_100">
+          <p><strong>3. Antecedentes históricos</strong></p>
+        <div class="break"></div>
+        <div class="subcontent width_30">
+          {% for texto in ['Nº incendios promedio (...../.....)', 'Fecha último incendio', 'Fecha última quema'] %}
+          <p style="float: left">{{ texto }}</p>
+          <div class="caja media"></div>
+          <div style="clear:both"></div>
+          {% endfor %}
+        </div>
+        <div class="subcontent width_50">
+          {% for texto in ['Puntuación total MP', 'Usos tradicionales del suelo'] %}
+          <p style="float: left">{{ texto }}</p>
+          <div class="caja larga width_50"></div>
+          <div style="clear:both"></div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="row boxed">
+      <div class="content width_100">
+          <p><strong>4. Descripción del área objeto de la quema</strong></p>
+        <div class="break"></div>
+        <div class="subcontent">
+          <div>Modelos de combustible</div>
+        </div>
+        <div class="break"></div>
+        <div class="subcontent width_30">
+          {% for key, value in [('Superficie (Ha)', parcela.sup), ('Perímetro (metros)', parcela.perim)] %}
+          <p style="float: left">{{ key }}</p>
+          <div class="caja media">{{ value | round(2, 'floor') }}</div>
+          <div style="clear:both"></div>
+          {% endfor %}
+        </div>
+        <div class="subcontent width_50">
+          {% for texto in ['Uso actual del suelo', 'Carga combustible'] %}
+          <p style="float: left">{{ texto }}</p>
+          <div class="caja larga width_50"></div>
+          <div style="clear:both"></div>
+          {% endfor %}
+        </div>
+        <div class="break"></div>
+        <div class="subcontent padding_10">
+          <p>Vegetación:</p>
+        </div>
+        <div class="break"></div>
+        <div class="subcontent width_100">
+          <table class="raw-table">
+            <colgroup>
+               <col span="1" style="width: 22%;">
+               <col span="1" style="width: 32%;">
+               <col span="1" style="width: 12%;">
+               <col span="1" style="width: 20%;">
+               <col span="1" style="width: 3%;">
+               <col span="1" style="width: 3%;">
+               <col span="1" style="width: 2%;">
+               <col span="1" style="width: 2%;">
+               <col span="1" style="width: 2%;">
+               <col span="1" style="width: 2%;">
+            </colgroup>
+            <thead>
+              <tr>
+                <td rowspan="2" style="border: 0px solid black"></td>
+                <td rowspan="2">Especie</td>
+                <td rowspan="2">Cobertura (%)</td>
+                <td rowspan="2">Altura media (cm)</td>
+                <td colspan="2">Distribución</td>
+                <td colspan="4">Humedad</td>
+              </tr>
+              <tr>
+                <td>HO</td>
+                <td>HE</td>
+                <td>E</td>
+                <td>H</td>
+                <td>S</td>
+                <td>MS</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2">Estrato arbóreo</td>
+                {% for i in range(9) %}
+                <td></td>
+                {% endfor %}
+              </tr>
+              <tr>
+                {% for i in range(9) %}
+                <td></td>
+                {% endfor %}
+              </tr>
+              <tr>
+                <td rowspan="4">Estrato arbustivo</td>
+                {% for i in range(9) %}
+                <td></td>
+                {% endfor %}
+              </tr>
+              {% for n in range(3) %}
+              <tr>
+                {% for i in range(9) %}
+                <td></td>
+                {% endfor %}
+              </tr>
+              {% endfor %}
+              <tr>
+                <td rowspan="2">Estrato herbáceo</td>
+                {% for i in range(9) %}
+                <td></td>
+                {% endfor %}
+              </tr>
+              <tr>
+                {% for i in range(9) %}
+                <td></td>
+                {% endfor %}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="subcontent" style="width: 47%">
+          <p>Humedad: Empapado (E), Húmedo, (H), Seco (S), Muy Seco (MS)</p>
+        </div>
+        <div class="subcontent">
+          <p>Distribución: Homogéneo (HO), Heterogéneo (HE)</p>
+        </div>
+        <div class="break"></div>
+        
+        <div class="subcontent padding_10">
+          <p>Topografía</p>
+        </div>
+        <div class="break"></div>
+        <div class="subcontent" style="width: 20%">
+          <p>Exposición: {{ parcela.orient | round(1, 'floor') }}º</p>
+        </div>
+        <div class="subcontent" style="width: 20%">
+          {% for texto in ['Solana', 'Umbría'] %}
+          <p style="float: left">{{ texto }}</p>
+          <div class="caja"></div>
+          <div style="clear:both"></div>
+          {% endfor %}
+        </div>
+        <div class="subcontent" style="width: 20%">
+          {% for key, value in [('Pendiente media', parcela.pend_mean), ('Pendiente máxima', parcela.pend_max)] %}
+          <p style="float: left">{{ key }}</p>
+          <div class="caja media">{{ value | round(2, 'floor') }}</div>
+          <div style="clear:both"></div>
+          {% endfor %}
+        </div>
+        <div class="subcontent" style="width: 20%">
+          {% for key, value in [('Altitud mínima', parcela.alt_min), ('Altitud máxima', parcela.alt_max), ('Altitud media', parcela.alt_mean)] %}
+          <p style="float: left">{{ key }}</p>
+          <div class="caja media">{{ value | round | int }}</div>
+          <div style="clear:both"></div>
+          {% endfor %}
+        </div>
+        <div class="break"></div>
+        <div class="subcontent padding_10">
+          <p>Suelo</p>
+        </div>
+        <div class="break"></div>
+        <div class="subcontent width_75">
+          <p style="float: left">Tipo de sustrato: Calcáreo</p><div class="caja" style="float:left"></div><p style="float: left">Silíceo</p><div class="caja" style="float:left"></div><p style="float: left">Otros</p><div class="caja" style="float:left"></div>
+          <div style="clear:both"></div>
+        <div class="break"></div>
+          <p style="float: left">Pedregosidad: Baja</p><div class="caja" style="float:left"></div><p style="float: left">Media</p><div class="caja" style="float:left"></div><p style="float: left">Alta</p><div class="caja" style="float:left"></div>
+          <div style="clear:both"></div>
+        <div class="break"></div>
+          <p style="float: left">Afloramientos rocosos: Sí</p><div class="caja" style="float:left"></div><p style="float: left">No</p><div class="caja" style="float:left"></div>
+        </div>
+        <div class="break"></div>
+      </div>
+    </div>
+  </div>
+  </page>
+  <page size="A4" type="anexo" title="fichas">
+  <div class="container">
+  {% include 'header.html' %}
+    <div class="row boxed">
+      <div class="content">
+        <div class="subcontent padding_10">
+          <p>Meteorología</p>
+        </div>
+        <div class="break"></div>
+        <div class="subcontent width_100">
+          <p style="float: left">Días desde la última precipiación </p><div class="caja media" style="float: left; width: 50px;"></div><p style="float: left">Precipitación media </p><div class="caja media" style="float: left; width: 50px;"></div>
+
+        </div>
+        <div class="break"></div>
+        <div class="subcontent width_100">
+          <table class="raw-table">
+            <colgroup>
+               <col span="1" style="width: 22%;">
+               <col span="1" style="width: 16%;">
+               <col span="1" style="width: 8%;">
+               <col span="1" style="width: 8%;">
+               <col span="1" style="width: 12%;">
+               <col span="1" style="width: 20%;">
+               <col span="1" style="width: 3%;">
+               <col span="1" style="width: 3%;">
+               <col span="1" style="width: 2%;">
+               <col span="1" style="width: 2%;">
+               <col span="1" style="width: 2%;">
+               <col span="1" style="width: 2%;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th colspan="12">Datos meteorológicos previos</th>
+              </tr>
+              <tr>
+                <td rowspan="2">FECHA</td>
+                <td rowspan="2">HORA (solar)</td>
+                <td colspan="2">VIENTO</td>
+                <td rowspan="2">HR (%)</td>
+                <td rowspan="2">Tº (ºC)</td>
+                <td rowspan="2">ÍNDICE DE PELIGRO</td>
+                <td rowspan="2">H.C.F.M.</td>
+                <td colspan="4">Humedad del suelo</td>
+              </tr>
+              <tr>
+                <td>Velocidad (km/h)</td>
+                <td>Dirección</td>
+                <td>E</td>
+                <td>H</td>
+                <td>S</td>
+                <td>MS</td>
+              </tr>
+            </thead>
+            <tbody>
+              {% for j in range(4) %}
+              <tr>
+                <td rowspan="3"></td>
+                {% for i in range(11) %}
+                <td></td>
+                {% endfor %}
+              </tr>
+              {% for n in range(2) %}
+              <tr>
+                {% for i in range(11) %}
+                <td></td>
+                {% endfor %}
+              </tr>
+              {% endfor %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="subcontent" style="width: 47%">
+          <p>Humedad: Empapado (E), Húmedo, (H), Seco (S), Muy Seco (MS)</p>
+        </div>
+        <div class="break"></div>
+        <div class="subcontent padding_10">
+          <p>Croquis</p>
+        </div>
+        <div class="break"></div>
+        <div class="subcontent width_100">
+          <img class="img_parcela" src="../images/parcela_quema_tornavacas_orto_{{ parcela.parcela }}.png">
+        </div>
+      </div>
+    </div>
+  </div>
+        
+  </page>
+  {% endfor %}
