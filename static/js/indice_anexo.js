@@ -42,7 +42,7 @@ for (i=0; i < pages.length; i++) {
       chapter_container.appendChild(dots);
       chapter_container.appendChild(page_number);
       
-      var index_content = document.getElementsByClassName('index')[0];
+      var index_content = document.getElementsByClassName('index')[1];
       index_content.appendChild(chapter_container);
     }
   }

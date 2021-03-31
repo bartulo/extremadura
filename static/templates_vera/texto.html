@@ -6,8 +6,9 @@
           {% for capitulo in capitulos %}
           {% include capitulo + '.html' %}
           {% endfor %}
+          {% include 'plan_quemas_' + zona + '/contenido.html' %}
        </div>
-      </div>
+    </div>
   </div>
 </page>
 <script src="../js/texto.js"></script>
