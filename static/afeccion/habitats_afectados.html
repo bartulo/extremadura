@@ -1,0 +1,10 @@
+<page size="A4" type="anexo">
+<div class="comtainer">
+  {% include 'header.html' %}
+  <div class="row">
+    <div class="content style-table">
+      {{ habitats_afectados.to_html(border=0, index=False) }}
+    </div>
+  </div>
+</div>
+</page>

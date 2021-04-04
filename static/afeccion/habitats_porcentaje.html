@@ -1,0 +1,22 @@
+<page size="A4" type="anexo">
+<div class="comtainer">
+  {% include 'header.html' %}
+  <div class="row">
+    {% for i in range(habitats['Parcela'].unique() | length) %}
+    <div class="content">Parcela {{ loop.index }}</div>
+    <div class="content style-table">
+      {{ habitats.loc[habitats['Parcela'] == 'Parcela ' + loop.index | string].to_html(border=0, index=False, columns = ['Código UE', 'Descripción', 'Superficie Parcela', 'Superficie del hábitat en la parcela', 'Porcentaje de parcela ocupado por el hábitat', 'Superficie del hábitat en el ZEC', 'Porcentaje de la superficie del hábitat en la parcela sobre el total del hábitat en el ZEC']) }}
+    </div>
+    {% if loop.index == 6 %}
+  </div>
+</div>
+</page>
+<page size="A4" type="anexo">
+<div class="container">
+  {% include 'header.html' %}
+  <div class="row">
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+</page>

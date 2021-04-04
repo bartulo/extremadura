@@ -62,26 +62,28 @@ for (let i = 0; i < index_rows.length; i++) {
   }
 };
 
-var index_page = pages[0].cloneNode();
-var index_container = document.createElement('div');
-index_container.classList.add('container');
-var index_row = document.createElement('div');
-index_row.classList.add('row');
-var index_content = document.createElement('div');
-index_content.classList.add('content');
-index_content.classList.add('index');
+if (typeof index_to_break != 'undefined') {
+  var index_page = pages[0].cloneNode();
+  var index_container = document.createElement('div');
+  index_container.classList.add('container');
+  var index_row = document.createElement('div');
+  index_row.classList.add('row');
+  var index_content = document.createElement('div');
+  index_content.classList.add('content');
+  index_content.classList.add('index');
 
-index_container.appendChild(header.cloneNode(true));
+  index_container.appendChild(header.cloneNode(true));
 
-l = index_rows.length;
-for (let i = index_to_break + 1; i < l + 1; i++) {
-  index_content.appendChild(pages[0].querySelector('.content.index').children[index_to_break + 1])
-  console.log(index_rows.length)
-};
+  l = index_rows.length;
+  for (let i = index_to_break + 1; i < l + 1; i++) {
+    index_content.appendChild(pages[0].querySelector('.content.index').children[index_to_break + 1])
+    console.log(index_rows.length)
+  };
 
-index_row.appendChild(index_content);
-console.log(index_row);
-index_container.appendChild(index_row);
-index_page.appendChild(index_container);
+  index_row.appendChild(index_content);
+  console.log(index_row);
+  index_container.appendChild(index_row);
+  index_page.appendChild(index_container);
 
-pages[0].after(index_page);
+  pages[0].after(index_page);
+}

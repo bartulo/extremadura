@@ -97,3 +97,10 @@ page[title="fichas"] .img_parcela_topo {
   margin-left: auto;
   margin-right: auto;
 }
+page[title=fichas] .height-1200 {
+  height: 1200px;
+}
+
+page[title=fichas] .height-1500 {
+  height: 1500px;
+}
