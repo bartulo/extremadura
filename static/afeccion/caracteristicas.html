@@ -1,1 +1,10 @@
-<p>Todas las parcelas de estudio se encuentran en su totalidad enclavadas en la Zona Especial de Conservación (ZEC) "Sierra de Gredos y Valle del Jerte", los habitats de interés comunitario y taxones de interés comunitario que están presentes en la zona de estudio ya fueron descritos en los documentos generales de cada una de las zonas.</p>
+{% if comarca == 'vera' %}
+{% set zar = 'Vera-Tiétar' %}
+{% else %}
+{% set zar = 'Jerte-Ambroz' %}
+{% endif %}
+<p>Todas las parcelas de estudio se encuentran en su totalidad enclavadas en la Zona Especial de Conservación (ZEC) "Sierra de Gredos y Valle del Jerte" dentro de la red Natura 2000. Como se sabe, estos espacios son declarados para la conservación de hábitats que son de interés comunitario, en el caso del ZEC "Sierra de Gredos y Valle del Jerte" hay una amplia variedad de hábitats de este tipo, puesto que existe un gradiente altitudinal de cerca de 2000 metros que le confiere una elevada diversidad biológica y por lo tanto una gran diversidad de hábitats. Entre los hábitats que podemos encontrar se incluyen relictos eurosiberianos, relictos subtropicales y elementos mediterraneos, así como un grado de endemicidad sin igual dentro de Extremadura.</p>
+<p>Dentro de las formaciones forestales destacan las formaciones de bosques perennifolios de encina (Quercus ilex), los bosques marcescentes de rebollo (Quercus pyrenaica), aunque también aparecen de forma puntual bosques caducifolios de cataño (Castanea sativa), Fresno (Fraxinus ssp) o almez (Celtis australis), formaciones arbustivas de enebro (Juniperus oxycedrus) y enclaves relictos de abedul (Betula ssp) y texo (Taxus baccata).</p>
+<p>En el piso supraforestal destacan los piornales (Cytisus ssp), brezales (Erica ssp) y formaciones vegetales de alta montañana como los cervunales o prados psicroxerófilos, así como gleras y canchales.</p>
+<p>En el anexo 1 se hace un listado de los hábitats presentes en el ZEC</p>
+<p>Hay que destacar también, que las parcelas se encuentran en la Zona de Alto Riesgo de Incendio {{ zar }} del plan INFOEX.</p>

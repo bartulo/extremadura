@@ -53,8 +53,9 @@ h4 {
   text-align: center;
 }
 .header h4 {
-  width: 1000px;
+  width: 798px;
   margin: 1px;
+  font-size: 15px;
 }
 .header .logo {
   width: 120px;
@@ -102,7 +103,14 @@ h4 {
   color: crimson;
 }
 .blue {
-  color: royalblue;
+  color: royalbluex;
+}
+.bloque {
+  display: block;
+  height: 100px;
+}
+.j-left {
+  justify-content: left;
 }
 page:not([type="anexo"]):after {
   content: 'Página ' counter(page);

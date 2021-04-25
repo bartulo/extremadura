@@ -1,0 +1,25 @@
+<p><strong>Comunidad autónoma:</strong> Extremadura.</p>
+<p><strong>Provincia:</strong> Cáceres.</p>
+<p><strong>Término municipal:</strong> Losar de la Vera.</p>
+<p><strong>Monte:</strong> Monte de utilidad pública.</p>
+<p>Se muestra un mapa con la localización de las parcelas propuestas y un mapa con las coordenadas UTM de las mismas. Hay que destacar, que debido a la gran dimensión de la zona asignada hemos dividido las parcelas en 3 zonas:</p>
+<ul>
+  <li>Zona del refugio del Brezo (parcelas de la 1 a la 8)</li>
+  <li>Zona del arroyo de Ripias (parcelas de la 9 a la 11)</li>
+  <li>Zona del camino de Castilla (Arriba) (Parcelas de la 12 a la 14)</li>
+</ul>
+</div>
+</div>
+<div class="row">
+  <div class="content">
+    <img class="img_localizacion" src="../images_quemas/parcelas_{{ zona }}.png"  />
+    <div class="pie_pagina">Localización de las parcelas propuestas sobre mapa topográfico.</div>
+  </div>
+</div>
+<div class="row">
+  <div class="content style-table">
+    {{ coordenadas.to_html(border=0, index=False) }}
+  </div>
+</div>
+<div class="row">
+  <div class="content">

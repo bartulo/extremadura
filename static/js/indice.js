@@ -26,7 +26,7 @@ for (i=0; i < pages.length; i++) {
 
       var page_number = document.createElement('div');
       page_number.classList.add('page_number');
-      page_number.innerHTML = i + 3;
+      page_number.innerHTML = i + 2;
 
       var chapter_container = document.createElement('div');
       chapter_container.classList.add('index_row');

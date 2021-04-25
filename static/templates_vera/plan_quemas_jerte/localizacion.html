@@ -1,0 +1,20 @@
+<p><strong>Comunidad autónoma:</strong> Extremadura.</p>
+<p><strong>Provincia:</strong> Cáceres.</p>
+<p><strong>Término municipal:</strong> Jerte.</p>
+<p><strong>Monte:</strong> Privado.</p>
+<p>Se muestra un mapa con la localización de las parcelas propuestas y un mapa con las coordenadas UTM de las mismas y el nombre de la finca a la que pertenecen.</p>
+</div>
+</div>
+<div class="row">
+  <div class="content">
+    <img class="img_localizacion" src="../images_quemas/parcelas_{{ zona }}.png"  />
+    <div class="pie_pagina">Localización de las parcelas propuestas sobre mapa topográfico.</div>
+  </div>
+</div>
+<div class="row">
+  <div class="content style-table">
+    {{ coordenadas.to_html(border=0, index=False) }}
+  </div>
+</div>
+<div class="row">
+  <div class="content">

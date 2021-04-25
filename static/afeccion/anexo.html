@@ -9,30 +9,19 @@
   </div>
 </page>
 
+{% for titulo, html in [('Hábitats presentes en ZEC "Sierra de Gredos y Valle del Jerte"', 'habitats_zec.html'),('Hábitats afectados', 'habitats_afectados.html'), ('Porcentaje de afección en los hábitats por parcela', 'habitats_porcentaje.html'), ('Fichas de evaluación previa', 'ficha_previa.html'), ('Fichas de ejecución y evaluación de la quema', 'ficha_ejecucion.html'), ('Ficha de seguimiento', 'ficha_seguimiento.html') ] %}
 <page size="A4" type="anexo">
   <div class="container">
     {% include 'header.html' %}
     <div class="row">
       <div class="content anexo_title">
-        <h4 class="text-xl">Anexo 1:</h4>
-        <h2>Hábitats afectados</h2>
+        <h4 class="text-xl">Anexo {{ loop.index }}:</h4>
+        <h2>{{ titulo }}</h2>
       </div>
     </div>
   </div>
 </page>
-{% include 'habitats_afectados.html' %}
-
-<page size="A4" type="anexo">
-  <div class="container">
-    {% include 'header.html' %}
-    <div class="row">
-      <div class="content anexo_title">
-        <h4 class="text-xl">Anexo 2:</h4>
-        <h2>Porcentaje de afección en los hábitats por parcela</h2>
-      </div>
-    </div>
-  </div>
-</page>
-{% include 'habitats_porcentaje.html' %}
+{% include html %}
+{% endfor %}
 
 <script src="../js/indice_anexo.js"></script>

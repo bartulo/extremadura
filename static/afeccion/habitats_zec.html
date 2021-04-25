@@ -1,0 +1,12 @@
+{% for habitat_zec in habitats_zec %}
+<page size="A4" type="anexo">
+<div class="container">
+  {% include 'header.html' %}
+  <div class="row">
+    <div class="content style-table">
+      {{ habitat_zec.to_html(border=0, index=False) }}
+    </div>
+  </div>
+</div>
+</page>
+{% endfor %}

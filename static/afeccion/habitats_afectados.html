@@ -2,6 +2,12 @@
 <div class="comtainer">
   {% include 'header.html' %}
   <div class="row">
+    <div class="content">
+      <img class="width_100 img_center" src="../images/afeccion_habitats_{{ zona }}.png" >
+      <div class="pie_pagina">Mapa de la ubicación de las parcelas sobre mapa topográfico y distribución de habitats según Atlas de Habitats elaborado por el Ministerio de Medio Ambiente en 2005. Fuente: Elaboración propia a partir de datos del IGN y MITECO.</div>
+    </div>
+  </div>
+  <div class="row">
     <div class="content style-table">
       {{ habitats_afectados.to_html(border=0, index=False) }}
     </div>

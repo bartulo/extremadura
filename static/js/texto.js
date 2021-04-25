@@ -131,6 +131,7 @@ var breakText = function(elem, rowIndex) {
     }
   }
 
+  console.log(contentBreakable[contentIndex])
   var elemBreakable = contentBreakable[contentIndex].children;
 
   // LOCALIZAR EL PARRAFO DONDE SE PRODUCE EL CORTE DE PÁGINA
